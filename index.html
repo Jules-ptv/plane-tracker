@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<link rel="shortcut icon" href="/Images/Icones/icon_V2.svg" type="image/x-icon">
+	<link rel="stylesheet" href="/style.css">
+	<script src="http://ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js"></script>
+	
+
+	<title>Plane Tracker</title>
+
+	<!--Font things-->
+	<link rel="preconnect" href="https://fonts.googleapis.com">
+	<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+	<link href="https://fonts.googleapis.com/css2?family=Open+Sans:ital,wght@0,500;0,600;0,700;1,800&family=Roboto:wght@100&display=swap" rel="stylesheet">
+
+	<!--Font Awesome Import-->
+	<script src="https://kit.fontawesome.com/f4651c1df1.js" crossorigin="anonymous"></script>
+
+
+</head>
+
+
+<body>
+	<script src="/main.js"></script>
+	<h1 id="title">Plane Tracker</h1>
+	<h2 id="subtitle">Find the planes above your head</h2>
+
+
+	<div class="planes--container" id="container">
+
+		<div class="plane--item">
+			<div class="indication--container">
+				<p class="indicator">Number</p>
+				<p class="value" id="number">[Number]</p>
+			</div>
+			<div class="indication--container">
+				<p class="indicator">Departure</p>
+				<p class="value" id="departure">From [DepartureCity], [DepartureCountry] at [Hour]</p>
+			</div>
+			<div class="indication--container">
+				<p class="indicator">Arrival</p>
+				<p class="value" id="arrival">To [DepartureCity], [DepartureCountry] at [Hour]</p>
+			</div>
+			<div class="indication--container">
+				<p class="indicator">Aircraft</p>
+				<p class="value" id="aircraft">Model : [Model]. It has [Years] years.</p>
+			</div>
+		</div>
+
+	</div>
+
+
+	<p id="infoText"></p>
+
+</body>
+</html>
