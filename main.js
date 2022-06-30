@@ -232,7 +232,7 @@ function getInformationsAboutAircraft(icao24){
 		}
 	});
 
-	xhr.open("GET", "https://aerodatabox.p.rapidapi.com/aircrafts/icao24/"+icao24);
+	xhr.open("GET", "https://aerodatabox.p.rapidapi.com/aircrafts/icao24/TVF3828");
 	xhr.setRequestHeader("X-RapidAPI-Key", "800e0bfac8mshb116d4cb2d357a8p1fa69fjsnd8e55f05bcb9");
 	xhr.setRequestHeader("X-RapidAPI-Host", "aerodatabox.p.rapidapi.com");
 	xhr.setRequestHeader("SameSite","None");
