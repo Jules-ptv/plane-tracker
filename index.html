@@ -29,27 +29,69 @@
 	<h2 id="subtitle">Find the planes above your head</h2>
 
 
-	<div class="planes--container" id="container">
+	<div class="plane--item">
+		<div class="indication--container">
+			<p class="indicator">Aircraft</p>
+			<div class="categories">
+				<div class="category">
+					<p class="information--indicator">Model</p>
+					<p class="value" id="model">[MODEL]</p>
+				</div>
 
-		<div class="plane--item">
-			<div class="indication--container">
-				<p class="indicator">Number</p>
-				<p class="value" id="number">[Number]</p>
-			</div>
-			<div class="indication--container">
-				<p class="indicator">Departure</p>
-				<p class="value" id="departure">From [DepartureCity], [DepartureCountry] at [Hour]</p>
-			</div>
-			<div class="indication--container">
-				<p class="indicator">Arrival</p>
-				<p class="value" id="arrival">To [DepartureCity], [DepartureCountry] at [Hour]</p>
-			</div>
-			<div class="indication--container">
-				<p class="indicator">Aircraft</p>
-				<p class="value" id="aircraft">Model : [Model]. It has [Years] years.</p>
-			</div>
+				<div class="category">
+					<p class="information--indicator">Company</p>
+					<p class="value" id="company">[COMPANY]</p>
+				</div>
+			</div>	
 		</div>
 
+		<div class="indication--container">
+			<p class="indicator">Departure</p>
+			<div class="categories">
+				<div class="category">
+					<p class="information--indicator">From</p>
+					<p class="value" id="departureLocation">[LOCATION]</p>
+				</div>
+
+				<div class="category">
+					<p class="information--indicator">At</p>
+					<p class="value" id="departureHour">[HOUR]</p>
+				</div>
+			</div>	
+		</div>
+
+
+		<div class="indication--container">
+			<p class="indicator">Arrival</p>
+			<div class="categories">
+				<div class="category">
+					<p class="information--indicator">To</p>
+					<p class="value" id="arrivalLocation">[LOCATION]</p>
+				</div>
+
+				<div class="category">
+					<p class="information--indicator">At</p>
+					<p class="value" id="arrivalHour">[HOUR]</p>
+				</div>
+			</div>	
+		</div>
+
+
+		<div class="indication--container">
+			<p class="indicator">Number</p>
+			<div class="categories">
+				<div class="category">
+					<p class="information--indicator">ICAO24</p>
+					<p class="value" id="icao24">[ICAO24]</p>
+				</div>
+
+				<div class="category">
+					<p class="information--indicator">Callsign</p>
+					<p class="value" id="callsign">[CALLSIGN]</p>
+				</div>
+			</div>	
+		</div>
+		
 	</div>
 
 

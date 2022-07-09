@@ -138,6 +138,10 @@ function getNearbyPlanes(latitude, longitude){
 
 
 function getInformationsAboutFlight(icao24, callsign){
+
+	document.getElementById('icao24').innerHTML = icao24;
+
+
 	var xhttp=new XMLHttpRequest();
 	xhttp.addEventListener("readystatechange", function () {
 		if (this.readyState === this.DONE) {
@@ -212,9 +216,16 @@ function findInformations(data){
 
 	//Actualise tous les champs (sur index.html) : 
 
-	document.getElementById("number").innerHTML = flightNumber;	
-	document.getElementById("departure").innerHTML = "From "+ departureCity+", " + departureCountry +" at "+ departureTime;		
-	document.getElementById("arrival").innerHTML = "To "+ arrivalCity+", " + arrivalCountry +" at "+ arrivalTime;
+	document.getElementById("callsign").innerHTML = flightNumber;
+		
+	document.getElementById("departureLocation").innerHTML = departureCity;
+	document.getElementById("departureLocation").setAttribute('title',departureCountry);
+	document.getElementById("departureHour").innerHTML = departureTime;
+
+	document.getElementById("arrivalLocation").innerHTML = arrivalCity;
+	document.getElementById("arrivalLocation").setAttribute('title',arrivalCountry);
+
+	document.getElementById("arrivalHour").innerHTML = arrivalTime;
 	
 	console.log("I'm done!!");
 	//All Done !
@@ -242,6 +253,7 @@ function getInformationsAboutAircraft(icao24){
 	xhr.setRequestHeader("X-RapidAPI-Key", "800e0bfac8mshb116d4cb2d357a8p1fa69fjsnd8e55f05bcb9");
 	xhr.setRequestHeader("X-RapidAPI-Host", "aerodatabox.p.rapidapi.com");
 	xhr.setRequestHeader("SameSite","None");
+	xhr.setRequestHeader("SameSite","Secure");
 	xhr.setRequestHeader("cross-site-cookie","whatever");
 	xhr.send(data);
 
@@ -256,6 +268,7 @@ function pickRightInformationsAboutAircraft(data){
 
 	let aircraftModel = data.model;
 	let aircraftAge = "N/A";
+	let companyName = data.airlineName;
 	try {
 		aircraftAge = data.ageYears;
 	} catch (error) {
@@ -264,7 +277,10 @@ function pickRightInformationsAboutAircraft(data){
 
 
 	//Refresh infos about aircraft;
-	document.getElementById("aircraft").innerHTML = "Model : "+aircraftModel+". It has "+aircraftAge+ " years !";
+	document.getElementById("model").innerHTML = aircraftModel;
+	document.getElementById("company").innerHTML = companyName;
+
+	
 }
 
 
@@ -272,11 +288,15 @@ function pickRightInformationsAboutAircraft(data){
 
 function showLoadingPanel(){
 	document.getElementById('loading--info').style.opacity = 1;
+	document.getElementById('loading--info').style.zIndex = 10;
+	document.getElementById('loading--info').hidden= true;
 	disableScroll();
 }
 
 function hideLoadingPanel(){
 	document.getElementById('loading--info').style.opacity = 0;
+	document.getElementById('loading--info').style.zIndex = -1;
+	document.getElementById('loading--info').hidden = true;
 	enableScroll();
 }
 
