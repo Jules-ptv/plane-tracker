@@ -70,3 +70,27 @@ body{
 	text-align: center;
 }
 
+
+.loading--info{
+	position: absolute;
+	width: 100%;
+	height: 100%;
+
+	background: rgba(0, 0, 0, 0.96);
+
+	display: flex;
+	flex-direction: column;
+	justify-content: center;
+	align-items: center;
+	gap: 50px;
+}
+
+.loading--info i{
+	font-size: 60px;
+	color: white;
+}
+
+.loading--info p{
+	font-size: 40px;
+	color: white;
+}

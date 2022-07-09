@@ -1,5 +1,6 @@
 window.onload = ()=>{
 	updatePanel();
+	
 };
 
 
@@ -8,6 +9,7 @@ function updatePanel(){
 	if('geolocation' in navigator) {
 		navigator.geolocation.getCurrentPosition((position) => {
 		  getNearbyPlanes(position.coords.latitude, position.coords.longitude);
+		  showLoadingPanel();
 		});
 	
 	} else {
@@ -214,6 +216,10 @@ function findInformations(data){
 	document.getElementById("departure").innerHTML = "From "+ departureCity+", " + departureCountry +" at "+ departureTime;		
 	document.getElementById("arrival").innerHTML = "To "+ arrivalCity+", " + arrivalCountry +" at "+ arrivalTime;
 	
+	console.log("I'm done!!");
+	//All Done !
+
+	hideLoadingPanel();
 }
 
 
@@ -236,6 +242,7 @@ function getInformationsAboutAircraft(icao24){
 	xhr.setRequestHeader("X-RapidAPI-Key", "800e0bfac8mshb116d4cb2d357a8p1fa69fjsnd8e55f05bcb9");
 	xhr.setRequestHeader("X-RapidAPI-Host", "aerodatabox.p.rapidapi.com");
 	xhr.setRequestHeader("SameSite","None");
+	xhr.setRequestHeader("cross-site-cookie","whatever");
 	xhr.send(data);
 
 }
@@ -262,3 +269,33 @@ function pickRightInformationsAboutAircraft(data){
 
 
 
+
+function showLoadingPanel(){
+	document.getElementById('loading--info').style.opacity = 1;
+	disableScroll();
+}
+
+function hideLoadingPanel(){
+	document.getElementById('loading--info').style.opacity = 0;
+	enableScroll();
+}
+
+
+
+
+//Other things
+
+function disableScroll() {
+    // Get the current page scroll position
+    scrollTop = window.pageYOffset || document.documentElement.scrollTop;
+    scrollLeft = window.pageXOffset || document.documentElement.scrollLeft,
+  
+        // if any scroll is attempted, set this to the previous value
+        window.onscroll = function() {
+            window.scrollTo(scrollLeft, scrollTop);
+        };
+}
+  
+function enableScroll() {
+    window.onscroll = function() {};
+}
